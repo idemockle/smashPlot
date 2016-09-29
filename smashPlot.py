@@ -17,3 +17,5 @@ def smashPlot(movie_in, plot_out, start_time = 0, end_time = np.inf, interval = 
 	damage_values_dict = classifyDigits(digit_image_dict)
 	
 	plotDamage(damage_values_dict, plot_out)
+ 
+     #Gittest
