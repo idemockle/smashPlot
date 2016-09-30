@@ -3,3 +3,5 @@ ffmpeg -ss 00:00:25 -i "evo2014 gf.mp4" -t 00:03:17 -copyts -c copy -vf "fps = 1
 ffmpeg -ss 00:00:25 -i "evo2014 gf.mp4" -t 00:03:17 -copyts -filter_complex "fps = 1; crop = in_w:in_h" "evo2014 gf.mp4 Frames/out%05d.png"
 
 C:\Users\Ian\Desktop\Mango Hbox Evo 2014 game 1>ffmpeg -ss 00:00:25 -i "evo2014 gf.mp4" -t 00:03:17 -copyts -filter_complex "fps = 1; [0:v:0] crop = 100:100" "evo2014 gf.mp4 Frames/out%05d.png"
+
+ffmpeg -ss 00:00:25 -i "bleh.mp4" -t 00:03:17 -copyts -filter_complex "[0:v:0] crop = 100:100" -r 1 "bleh.mp4 Frames/out%05d.png"
