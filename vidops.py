@@ -32,13 +32,13 @@ def extractFrames(movie_file, start_time = "00:00:00.0", end_time = None, fps = 
     if end_time is not None:
         end_time = '-t ' + end_time + ' -copyts'
     output = '"' + frames_dir + '/out%05d.png' + '"'
+    rate = '-r ' + str(fps)
     
     # filters
-    fps = 'fps = ' + str(fps)
     crop = 'crop = ' + crop
-    filters = '-filter_complex "' + '; '.join([fps, crop]) + '"'
+    filters = '-filter_complex "[0:v:0] ' + '; '.join([crop]) + '"'
 
-    ffmpeg_call = ['ffmpeg', start_time, input, end_time, filters, output]
+    ffmpeg_call = ['ffmpeg', start_time, input, end_time, filters, rate, output]
     
     # Get rid of None arguments
     ffmpeg_call = ' '.join([arg for arg in ffmpeg_call if arg is not None])
